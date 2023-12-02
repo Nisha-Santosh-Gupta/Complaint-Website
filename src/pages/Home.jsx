@@ -22,7 +22,7 @@ function Home() {
     try {
       
       const url = process.env.BACKEND
-      const res = await fetch(url+"/user/login", {
+      const res = await fetch(url+"user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

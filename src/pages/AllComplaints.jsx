@@ -7,7 +7,7 @@ function AllComplaints() {
   useEffect(() => {
     
     const url = process.env.BACKEND
-    fetch(url+"/api/list")
+    fetch(url+"api/list")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
