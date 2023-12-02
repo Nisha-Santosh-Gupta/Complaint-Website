@@ -19,7 +19,6 @@ database.connect();
 app.use(express.json());
 
 app.use(cors({
-  origin: "*"
 }))
 // Routers
 app.get("/", (req, res) => {
