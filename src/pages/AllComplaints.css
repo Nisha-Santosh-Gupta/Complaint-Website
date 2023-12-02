@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    /* background-color: #b79ae7; */
+}
+
+#heading{
+    position: inherit;
+     /* background-color: #8554d4; */
+     margin-top: 10px;
+     font-size: 50px;
+     font-weight: bold;
+     padding-left: 10px;
+     padding-right: 10px;
+     padding-top: 5px;
+     padding-bottom: 0;
+     font-family: sans-serif;
+     color: #8554d4;
+     text-align: center;
+}
+
+.para{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 10px;
+
+    background-color: #d7caede4;
+}
+
