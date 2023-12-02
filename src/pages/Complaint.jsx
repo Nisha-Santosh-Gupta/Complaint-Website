@@ -23,7 +23,8 @@ const Complaint = () => {
       complaint;
 
     try {
-      const response = await fetch("http://localhost:4000/api/complaints", {
+      const url = process.env.BACKEND
+      const response = await fetch(url+"/api/complaints", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

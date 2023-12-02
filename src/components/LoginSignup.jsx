@@ -25,7 +25,8 @@ const LoginSignup = () => {
 
     if (cpassword === password) {
       try {
-        const response = await fetch("http://localhost:4000/user/signup", {
+        const url = process.env.BACKEND
+        const response = await fetch(url + "/user/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

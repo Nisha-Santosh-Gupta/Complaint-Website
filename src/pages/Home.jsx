@@ -20,7 +20,8 @@ function Home() {
     //destructuring
     const { email, password } = login;
     try {
-      const res = await fetch("http://localhost:4000/user/login", {
+      const url = process.env.BACKEND
+      const res = await fetch(url+"/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
