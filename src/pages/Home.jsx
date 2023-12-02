@@ -20,6 +20,7 @@ function Home() {
     //destructuring
     const { email, password } = login;
     try {
+      
       const url = process.env.BACKEND
       const res = await fetch(url+"/user/login", {
         method: "POST",
