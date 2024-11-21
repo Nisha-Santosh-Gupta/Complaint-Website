@@ -6,7 +6,7 @@ function AllComplaints() {
 
   useEffect(() => {
     
-    const url = process.env.BACKEND
+    const url = process.env.REACT_APP_BACKEND
     fetch(url+"api/list")
       .then((res) => res.json())
       .then((data) => {
