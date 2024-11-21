@@ -19,8 +19,11 @@ database.connect();
 app.use(express.json());
 
 app.use(cors({
-  origin: "*"
-}))
+  origin: "https://complaint-management-website.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
+
 // Routers
 app.get("/", (req, res) => {
   return res.json({
