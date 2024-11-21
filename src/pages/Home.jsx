@@ -21,7 +21,7 @@ function Home() {
     const { email, password } = login;
     try {
       
-      const url = process.env.BACKEND
+      const url = process.env.REACT_APP_BACKEND
       const res = await fetch(url+"user/login", {
         method: "POST",
         headers: {
