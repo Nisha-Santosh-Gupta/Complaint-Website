@@ -25,7 +25,7 @@ const LoginSignup = () => {
 
     if (cpassword === password) {
       try {
-        const url = process.env.BACKEND
+        const url = process.env.REACT_APP_BACKEND
         const response = await fetch(url+"user/signup", {
           method: "POST",
           headers: {
@@ -45,7 +45,9 @@ const LoginSignup = () => {
           window.location.href = "/";
           // window.location.href = '/login';
         } else {
-          console.error("Complaint submission failed");
+          const errorData = await response.json();
+          console.error("Error:", errorData.message || "Complaint submission failed");
+          window.alert(errorData.message || "Something went wrong. Please try again.");
         }
       } catch (error) {
         console.error("Error:", error);
