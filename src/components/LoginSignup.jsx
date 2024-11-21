@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import "./LoginSignup.css";
 
 const LoginSignup = () => {
@@ -20,13 +20,12 @@ const LoginSignup = () => {
   };
 
   const PostData = async () => {
-    const { firstName, lastName, email, contactNo, password, cpassword } =
-      signup;
+    const { firstName, lastName, email, contactNo, password, cpassword } = signup;
 
     if (cpassword === password) {
       try {
-        const url = process.env.REACT_APP_BACKEND
-        const response = await fetch(url+"user/signup", {
+        const url = process.env.REACT_APP_BACKEND; // Ensure this is defined
+        const response = await fetch(`${url}user/signup`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -41,19 +40,20 @@ const LoginSignup = () => {
         });
 
         if (response.ok) {
-          window.alert("Sign up successful. You can now log in.");
+          const data = await response.json();
+          window.alert(data.message || "Sign up successful. You can now log in.");
           window.location.href = "/";
-          // window.location.href = '/login';
         } else {
-          //const errorData = await response.json();
+          const errorData = await response.json();
           console.error("Error:", errorData.message || "Complaint submission failed");
           window.alert(errorData.message || "Something went wrong. Please try again.");
         }
       } catch (error) {
         console.error("Error:", error);
+        window.alert("Network error. Please try again later.");
       }
     } else {
-      window.alert("Enter the same password");
+      window.alert("Passwords do not match.");
     }
   };
 
@@ -67,7 +67,7 @@ const LoginSignup = () => {
             id="Fname"
             type="text"
             name="firstName"
-            placeholder="first name"
+            placeholder="First Name"
             value={signup.firstName}
             onChange={handleInputChange}
           />
@@ -76,7 +76,7 @@ const LoginSignup = () => {
             id="Lname"
             name="lastName"
             type="text"
-            placeholder="last name"
+            placeholder="Last Name"
             value={signup.lastName}
             onChange={handleInputChange}
           />
@@ -107,7 +107,6 @@ const LoginSignup = () => {
             value={signup.password}
             onChange={handleInputChange}
           />
-
           <input
             className="loginList"
             id="pwd2"
@@ -126,4 +125,5 @@ const LoginSignup = () => {
     </div>
   );
 };
+
 export default LoginSignup;
