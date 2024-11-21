@@ -45,7 +45,7 @@ const LoginSignup = () => {
           window.location.href = "/";
           // window.location.href = '/login';
         } else {
-          const errorData = await response.json();
+          //const errorData = await response.json();
           console.error("Error:", errorData.message || "Complaint submission failed");
           window.alert(errorData.message || "Something went wrong. Please try again.");
         }
