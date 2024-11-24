@@ -23,7 +23,7 @@ exports.createComplaint = async (req, res) => {
     //send Mail
       try{
         const emailResponse = await mailSender(
-            "nagresharayu@gmail.com", complaint.title,complaintSender(
+            "nisha.santosh.gupta@gmail.com", complaint.title,complaintSender(
                 complaint.complainerName, complaint.contactNo, complaint.title, complaint.description, complaint.location),
                 );
                 console.log("Email sent successfully: ", emailResponse.response)
